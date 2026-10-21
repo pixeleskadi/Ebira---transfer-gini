@@ -19,7 +19,7 @@ bootstrap=text('rev-parse','HEAD')
 env=dict(os.environ,GIT_INDEX_FILE=str(ROOT/'.git'/'snapshot-import-index'))
 subprocess.check_call(['git','config','user.name','pixeleskadi'])
 subprocess.check_call(['git','config','user.email','226473610+pixeleskadi@users.noreply.github.com'])
-snapshots=[];parent=BASE
+snapshots=[];parent=bootstrap;archive=entries(bootstrap)
 for i in range(1,5):
     version=f'candidate-{i}'
     manifest=json.loads((ROOT/f'ebira-{version}.json').read_text(encoding='utf-8-sig'))
@@ -35,11 +35,21 @@ for i in range(1,5):
     for name,(_,sha) in files.items():
         if hashlib.sha256(git('cat-file','blob',sha)).hexdigest()!=expected[name]:raise RuntimeError('Source checksum mismatch: '+name)
     message=f'Archive Ebira {version}: {manifest["description"]}\n\nRecovered from {manifest["source_archive"]}\nArchive SHA-256: {manifest["source_archive_sha256"]}\nImported now without invented historical dates. Generated binaries excluded.\n'
-    commit=text('commit-tree',tree,'-p',parent,data=message.encode())
+    for name,value in files.items():archive[f'versions/{version}/source/{name}']=value
+    add(archive,f'versions/{version}/provenance.json',json.dumps(manifest,indent=2)+'\n')
+    git('read-tree','--empty',env=env)
+    archive_rows=b''.join(f'{mode} {sha}\t{name}\0'.encode() for name,(mode,sha) in sorted(archive.items()))
+    git('update-index','-z','--index-info',data=archive_rows,env=env)
+    archive_tree=text('write-tree',env=env)
+    commit=text('commit-tree',archive_tree,'-p',parent,data=message.encode())
     tag=f'snapshots/ebira/{version}'
     manifest.update(git_commit=commit,git_tag=tag,source_tree=tree,remote_verification='All source file hashes verified at import; verify pushed refs separately.')
     snapshots.append(dict(version=version,commit=commit,tree=tree,tag=tag,files=files,manifest=manifest));parent=commit
 final=dict(snapshots[-1]['files'])
+# Contents-only automation cannot edit active workflow files. Preserve original
+# CI inside each complete source folder, and expose the root CI as a template.
+final['workflow-templates/native-v1.yml']=final.pop('.github/workflows/native-v1.yml')
+final.update({name:value for name,value in entries(bootstrap).items() if name.startswith('.github/workflows/')})
 for s in snapshots:
     folder=f'versions/{s["version"]}'
     for name,value in s['files'].items():final[f'{folder}/source/{name}']=value
@@ -50,15 +60,15 @@ add(final,'versions/index.json',json.dumps(index,indent=2)+'\n')
 add(final,'versions/README.md','# Ebira source versions\n\nEach version has its complete source folder and checksum/provenance manifest. Root source is based on candidate 4.\n\n'+'\n'.join(f'- [{s["version"]}]({s["version"]}/README.md): {s["manifest"]["description"]}' for s in snapshots)+'\n\nOriginal PoC history remains in Git. Snapshot commits were imported now without inventing historical dates. The private pixeleskadi/ebira repository retains planning documents; this repository holds the app implementation. Installable builds are local deliverables, outside source control.\n')
 build=git('cat-file','blob',final['BUILD.md'][1]).decode().replace('.\\gradlew.bat assembleDebug lintDebug','gradle assembleDebug lintDebug').replace('Gradle 8.9 (or the checked-in wrapper)','installed Gradle 8.9 (generated wrapper JAR is not versioned)')
 add(final,'BUILD.md',build)
-workflow=git('cat-file','blob',final['.github/workflows/native-v1.yml'][1]).decode().replace('\r\n','\n').replace('      - name: Build and lint native Android app\n        run: bash android/gradlew -p android assembleDebug lintDebug --no-daemon',"      - uses: gradle/actions/setup-gradle@v4\n        with:\n          gradle-version: '8.9'\n      - name: Build and lint native Android app\n        run: gradle -p android assembleDebug lintDebug --no-daemon")
-add(final,'.github/workflows/native-v1.yml',workflow)
+workflow=git('cat-file','blob',final['workflow-templates/native-v1.yml'][1]).decode().replace('\r\n','\n').replace('      - name: Build and lint native Android app\n        run: bash android/gradlew -p android assembleDebug lintDebug --no-daemon',"      - uses: gradle/actions/setup-gradle@v4\n        with:\n          gradle-version: '8.9'\n      - name: Build and lint native Android app\n        run: gradle -p android assembleDebug lintDebug --no-daemon")
+add(final,'workflow-templates/native-v1.yml',workflow)
 add(final,'.gitignore',git('cat-file','blob',final['.gitignore'][1]).decode().rstrip()+'\n/android/gradle/wrapper/gradle-wrapper.jar\n')
 add(final,'README.md',git('cat-file','blob',final['README.md'][1]).decode()+'\n## Version register\n\n[Four preserved source versions](versions/README.md), with full source, snapshot tags and provenance/checksum manifests. Chip Register links the app implementation with the private Ebira planning repository.\n')
 git('read-tree','--empty',env=env)
 rows=b''.join(f'{mode} {sha}\t{name}\0'.encode() for name,(mode,sha) in sorted(final.items()))
 git('update-index','-z','--index-info',data=rows,env=env)
 tree=text('write-tree',env=env)
-commit=text('commit-tree',tree,'-p',bootstrap,'-p',parent,data=b'Organize four Ebira source versions and integrate the current native candidate\n\nPreserve original history and snapshot provenance; exclude installers, generated binaries and secrets. The approved one-time import workflow is absent from the final tree.\n')
+commit=text('commit-tree',tree,'-p',parent,data=b'Organize four Ebira source versions and integrate the current native candidate\n\nPreserve original history and snapshot provenance; exclude installers, generated binaries and secrets. CI remains archived as source/template. The temporary import workflow will be removed through the GitHub UI after remote verification.\n')
 if '--dry-run' in sys.argv:
     print(json.dumps(dict(dry_run=True,head=commit,tree=tree,snapshots=index),indent=2));sys.exit(0)
 if text('ls-remote','origin',f'refs/heads/{BRANCH}').split()[0]!=bootstrap:raise RuntimeError('Remote branch changed; refusing to overwrite it')
