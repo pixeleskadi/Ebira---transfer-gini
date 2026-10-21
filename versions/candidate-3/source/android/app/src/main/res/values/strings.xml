@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Ebira</string>
+    <string name="device_name">%1$s %2$s</string>
+    <string name="saved_state_error">Cannot read saved state: %1$s</string>
+    <string name="find_laptop">Find my laptop</string>
+    <string name="finding_laptops">Looking for laptops…</string>
+    <string name="offline_credentials">%1$s\n\nWi-Fi name: %2$s\nPassword: %3$s</string>
+</resources>

@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType><TargetFramework>net8.0-windows</TargetFramework><UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><AssemblyName>Ebira</AssemblyName><Version>1.0.0-offline-candidate.3</Version>
+    <ApplicationManifest>app.manifest</ApplicationManifest><ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+  </PropertyGroup>
+  <ItemGroup><ProjectReference Include="../Ebira.Core/Ebira.Core.csproj" /></ItemGroup>
+</Project>

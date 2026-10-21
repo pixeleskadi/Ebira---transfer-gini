@@ -1,0 +1,304 @@
+{
+  "version": "candidate-3",
+  "description": "Android local-only hotspot, laptop discovery and TLS connection reuse",
+  "base_repository": "https://github.com/pixeleskadi/Ebira---transfer-gini",
+  "base_commit": "6be591a8be92fe54e976332aad8984b24d075559",
+  "source_archive": "Ebira-v1-source-offline-candidate-3.zip",
+  "source_archive_sha256": "68862d27fa899c39451f1541b8fee773b45fec089a3d11d357b1b59d2b61ee6b",
+  "normalized_archive_prefix": "",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "64dec9d7cc8b6ed1c37be5ed9c71893cfcb1ec3f2c1d9c39ef5b8ff6b61ceac5"
+    },
+    {
+      "path": ".github/workflows/native-v1.yml",
+      "sha256": "e25d18b9cf5fb74c17cf1b735a0c61bbd85b28d5351a27e8a51109244e950b72"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "9510972bf93a631193635f7ba5af19a7706227c42f362910ada5788ea92d44bc"
+    },
+    {
+      "path": "BUILD.md",
+      "sha256": "35b36fb5efb7791a774029a5b3708916cb2043cf9556b81aeb11e48ab2547da2"
+    },
+    {
+      "path": "MASTER-ISSUE.md",
+      "sha256": "7debd13fbc02ae4bf76f5306afc364ea7b1120b946180323676a5ecc88676bd0"
+    },
+    {
+      "path": "NuGet.Config",
+      "sha256": "8bd42cedcdd4fb83acfe31664f15fcdde79902c327b2d4dd5b32460b3eab6b29"
+    },
+    {
+      "path": "README.md",
+      "sha256": "1423a197d6309d83aea5046181acb15b978af3cc57fe9d4e08b29751513d2a5d"
+    },
+    {
+      "path": "Start-Ebira.cmd",
+      "sha256": "a70169d417fa2f8a790051d472f84ec0af454e36dd9c21b719fb499d7cec0767"
+    },
+    {
+      "path": "Start-PoC.cmd",
+      "sha256": "2d82b47d90de70af55790eca12345d858c747f4361548c348679299702d6ffe1"
+    },
+    {
+      "path": "V1-SCOPE.md",
+      "sha256": "f9b2769afe46794d5896d3a08d6b66f63b22f01e428f3005d1fcf373ede46a22"
+    },
+    {
+      "path": "android/app/build.gradle",
+      "sha256": "113c8c372ed520b34983554e190370bc453af6237481c1358383224236a8ff48"
+    },
+    {
+      "path": "android/app/src/main/AndroidManifest.xml",
+      "sha256": "7b4a304761d838038287c34cc1952436d7f3ceea673a58a1de54c4506aa69923"
+    },
+    {
+      "path": "android/app/src/main/java/app/ebira/Api.java",
+      "sha256": "d7a8506a6aba31264ab43b785c1579658179cf1c3500a3c749e0bda34af4e1e5"
+    },
+    {
+      "path": "android/app/src/main/java/app/ebira/LanDiscovery.java",
+      "sha256": "452584bb8db36f7d4918938b6322698f4dc4d98ce4eeb54b59a05d9a3457ac15"
+    },
+    {
+      "path": "android/app/src/main/java/app/ebira/LocalRouting.java",
+      "sha256": "f07b4be587f136859f2752fba5c6a770c96da2bd0a2f5d87e339c48d19844b2c"
+    },
+    {
+      "path": "android/app/src/main/java/app/ebira/LocalState.java",
+      "sha256": "be79cb255e4299e7994b745a0fc03bd776a49b9521cd057f6588d10518fc90c8"
+    },
+    {
+      "path": "android/app/src/main/java/app/ebira/MainActivity.java",
+      "sha256": "28ad0360e4fc4d6748f25524942d7483d11da9cbc019189d620fcd34788069c7"
+    },
+    {
+      "path": "android/app/src/main/java/app/ebira/OfflineService.java",
+      "sha256": "1d806d1c3c43ad4feab2881aefa9eb7732261f975c41b74599ff346222c1b4b7"
+    },
+    {
+      "path": "android/app/src/main/java/app/ebira/Repository.java",
+      "sha256": "2eac1490a7b904564b4e20ce92671900b6fbac65bbf416b03964ab045569bb2b"
+    },
+    {
+      "path": "android/app/src/main/java/app/ebira/TransferService.java",
+      "sha256": "fe715437ec38eb4740b4ccf86c9829a54b358b434cdc34e7eb25787e8785e3a9"
+    },
+    {
+      "path": "android/app/src/main/res/drawable/ic_ebira.xml",
+      "sha256": "b6adaab1716a13c04bdcdd34186235bcba01528d8a92e572cb78aab80c7f7f63"
+    },
+    {
+      "path": "android/app/src/main/res/values/strings.xml",
+      "sha256": "61c33d5ac1a27707c60031e57686560abd319e04156cb28c209d0bbc264e30cc"
+    },
+    {
+      "path": "android/app/src/main/res/xml/data_extraction_rules.xml",
+      "sha256": "ab12f47a9ccda0f0fcb7d3c0220633571d1b5621b699026d1da1c85258a41ba8"
+    },
+    {
+      "path": "android/build.gradle",
+      "sha256": "846b16fbbbcb8b328f32f9b0b47190900c17138722e86561573cba18a446662c"
+    },
+    {
+      "path": "android/gradle.properties",
+      "sha256": "af6cd21802938a453c067bcc3437b71abef3cfd36abb1815de8c2a15577186a3"
+    },
+    {
+      "path": "android/gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "d4908e7102df071092e2cd7d7bd07037589840ea4d6e73c4bf5da03ade233868"
+    },
+    {
+      "path": "android/gradlew",
+      "sha256": "a3648413b47ef77af21d5ebc36c687c7d103aaef3e17f33de7d4f080a6f300a3"
+    },
+    {
+      "path": "android/gradlew.bat",
+      "sha256": "57931b17dd228e5c24dac90e815d0bf82477e831a4618dfab4136f5446b42a9f"
+    },
+    {
+      "path": "android/settings.gradle",
+      "sha256": "880f4acfb20cecfa94a02a7dfeb838e531a2b6438106fadd9381b6f8ff0d7704"
+    },
+    {
+      "path": "android/transport-checks/ApiCheck.java",
+      "sha256": "12ff9681d4d2083aa754162f1e773e6cd5dfc12600b6d9ce4a6c7de5179dd1de"
+    },
+    {
+      "path": "android/transport-checks/OfflineCheck.java",
+      "sha256": "ed2ed4ca159cfc24bbcb4d12bee632ac9572e94e3c4cc252ae18ca8db289c522"
+    },
+    {
+      "path": "docs/DEVICE-VALIDATION.md",
+      "sha256": "a35847f6d07127497e30029730dd7b443d9ca1ac447be80dd9dee726417c12f9"
+    },
+    {
+      "path": "docs/GETTING-STARTED.md",
+      "sha256": "47bea433ca69190c996a4e037c34b9737ec5b06767bf97271c0782091801274b"
+    },
+    {
+      "path": "docs/POC.md",
+      "sha256": "338eb82dc0e4429f70fdff664757f1e9aa1a4de03e1f2ed24589c6033b86d3c8"
+    },
+    {
+      "path": "docs/PROTOCOL.md",
+      "sha256": "3f64e89699611bacb7e200e9fd0718c1473819a608d8bf93dbe1dd528a029e1b"
+    },
+    {
+      "path": "docs/V1-BASELINE.md",
+      "sha256": "53c700557d53add295a72acad56653ff14e1912ccbcbb837341852233a68417b"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "sha256": "45f63275bc80a5888c55da31f5c3419601134231e2cb2046354a24f2219f7428"
+    },
+    {
+      "path": "native/Ebira.Checks/AndroidTransport.cs",
+      "sha256": "df3ffa279a8bc8a6c3bd90d4cb35b9d16f716b9da76bb113a58f4bfa4384bdc8"
+    },
+    {
+      "path": "native/Ebira.Checks/Ebira.Checks.csproj",
+      "sha256": "646032424828e297a820f5b18af0cb0794e4648f491b18c1b35be561a687b7bc"
+    },
+    {
+      "path": "native/Ebira.Checks/NodeTlsHandler.cs",
+      "sha256": "c5925a53fed88430b1a6998ea3295954ec726f8df80d6ffab20785e1191748b7"
+    },
+    {
+      "path": "native/Ebira.Checks/Program.cs",
+      "sha256": "b16f8ae4b64d749324fc256bb99dfd0c72aac3de62637fad2a156bee78a2fe3b"
+    },
+    {
+      "path": "native/Ebira.Checks/node-bridge.mjs",
+      "sha256": "4f6d28ce9d89025427652142182ffc6d592b9b3dbd2ed917b3f88457587283a8"
+    },
+    {
+      "path": "native/Ebira.Checks/node-tls.mjs",
+      "sha256": "d849468a8abde3a7f9f3019d7e4852c269ff25c8170fcd11f785c0fff8ab22d9"
+    },
+    {
+      "path": "native/Ebira.Core/AssemblyInfo.cs",
+      "sha256": "1f1a037b5d815e47d19c55c62e37fb4afae9a9f23862b577a848aff60e269b8c"
+    },
+    {
+      "path": "native/Ebira.Core/Ebira.Core.csproj",
+      "sha256": "485e7bbe314b9fcb67d382dbc0efec476d6907a3985c47621869dc0f0d0f3d02"
+    },
+    {
+      "path": "native/Ebira.Core/Engine.cs",
+      "sha256": "79d50a522b2a15e2c444a6500e69d87b42a4fcf27bedeab3141100bfda89a4a3"
+    },
+    {
+      "path": "native/Ebira.Core/Models.cs",
+      "sha256": "074bba5b15b42ec7c81a3e72d80bf445b232e02be418f2c609adec1afad7a52c"
+    },
+    {
+      "path": "native/Ebira.Core/TransferServer.cs",
+      "sha256": "40724a0d65bad8162474e9866093e71e15567071b2073128821466c575b89e44"
+    },
+    {
+      "path": "native/Ebira.LayoutChecks/Ebira.LayoutChecks.csproj",
+      "sha256": "44533f1eba56f6f6445feab7e9aa73f6193c17ef1112879bf74e298f7a95b605"
+    },
+    {
+      "path": "native/Ebira.LayoutChecks/Program.cs",
+      "sha256": "e16e70da643c12dec1b4cfed691e4297c709448d195fe1bb642cfc1991426a67"
+    },
+    {
+      "path": "native/Ebira.Windows/Ebira.Windows.csproj",
+      "sha256": "6928e8ac5f24e6109f1de75fb3cb051a76c7889cd04041d50ee71f511535fa9e"
+    },
+    {
+      "path": "native/Ebira.Windows/Identity.cs",
+      "sha256": "f86a7c1ad277a5c6402d917e07ec4e61ce8972b6ae9656abb9bda56e8978a7e9"
+    },
+    {
+      "path": "native/Ebira.Windows/LanDiscovery.cs",
+      "sha256": "44348e69fe0a9a9191c8db540d43d2e4f6009d8267f8899556cb731c4ecdad22"
+    },
+    {
+      "path": "native/Ebira.Windows/MainForm.cs",
+      "sha256": "3f6d3b5986a96c72ac7ddf8e5525efb66ee4e98f2a95769f24eed496e61ce077"
+    },
+    {
+      "path": "native/Ebira.Windows/NetworkSelection.cs",
+      "sha256": "bd32dbd97e849421621357dd31296a91fddcd4285dc64aade7b984e13dd5aa7b"
+    },
+    {
+      "path": "native/Ebira.Windows/Program.cs",
+      "sha256": "fa727a81af027de33832697a9e77ea3bca545ada5d60a3e72d1d3ed0f2d441eb"
+    },
+    {
+      "path": "native/Ebira.Windows/app.manifest",
+      "sha256": "0f8c61a00420c7dc18d4019083d43d89ad279652c8dd36498709388803e305c6"
+    },
+    {
+      "path": "package.json",
+      "sha256": "433e78397688e4da1780ca3673598713ba96fd045ca2133a4c721f804a498242"
+    },
+    {
+      "path": "public/app.js",
+      "sha256": "83eb7b5ab5ff01e7e0aa71922c34ac554ac558be0bc96c8da0905139fd4a71f0"
+    },
+    {
+      "path": "public/index.html",
+      "sha256": "9c76945ebde41b12bb3677bd7f0dfc736c00d5d1216235ce4101b33393e0ed6f"
+    },
+    {
+      "path": "public/style.css",
+      "sha256": "c5b3e6537bae3146dfda2574b1985e51241746103b8426588a0ecc34dd513b9c"
+    },
+    {
+      "path": "scripts/Install-Ebira.cmd",
+      "sha256": "68b7779cf24b6f1e4a1fb5ec8309262577fa4dccd8e50aca7fbc2536536c49c3"
+    },
+    {
+      "path": "scripts/Install-Ebira.ps1",
+      "sha256": "14ccfeccece53b7303998b322b1e133d9d22332f070167bfac4f56978d39371d"
+    },
+    {
+      "path": "scripts/Uninstall-Ebira.cmd",
+      "sha256": "b663953b8ac1741355b27a9e1f3f661ead981209a209dc5f44f09f4b38d72495"
+    },
+    {
+      "path": "scripts/Uninstall-Ebira.ps1",
+      "sha256": "c32587a0987759e69c7d13f49c4eecd4c78ebfa89f13488ae653ad5533e85247"
+    },
+    {
+      "path": "server.js",
+      "sha256": "ca77d979ce937e17aaa1bb67a25d296881e94428f6ae5c0a1d8c9714246f0834"
+    },
+    {
+      "path": "start.ps1",
+      "sha256": "81d1fce1e1feacf1ab2c0790f521db378a10232a2fb42964a29f855f1fd6432c"
+    },
+    {
+      "path": "test.js",
+      "sha256": "a8a8188cabe4d20f7ca8505b65f851a1ff13f240cba8868e77638779d597abca"
+    }
+  ],
+  "excluded_generated_binaries": [
+    "android/gradle/wrapper/gradle-wrapper.jar"
+  ],
+  "original_artifacts": [
+    {
+      "sha256": "68862d27fa899c39451f1541b8fee773b45fec089a3d11d357b1b59d2b61ee6b",
+      "name": "Ebira-v1-source-offline-candidate-3.zip"
+    },
+    {
+      "sha256": "0ba874e21dc0fbadefc132f730c741035a1fca2dcc3b2abe81a1b956b130c0dd",
+      "name": "Ebira-Windows-x64-offline-candidate-3.zip"
+    },
+    {
+      "sha256": "17c99f2658ed29b801a1f1a36fdf8c2f69c4ae6b6fe9e386276b4f6531b6531b",
+      "name": "Ebira-Android-offline-candidate-3.apk"
+    }
+  ],
+  "validation": "Development candidate; physical validation gates remain open",
+  "remote_verification": "pending",
+  "source_tree": "07af1f874bfdf6b541e7f8491a0c305dfa401e29",
+  "patch_sha256": "e5a066e08164f47b819fb1b5c43a9dc60c902f6514a08ddcc2cef2ab2cdc8e3d"
+}
