@@ -1,0 +1,34 @@
+[
+  {
+    "version": "candidate-1",
+    "commit": "ac53015416c0d42f969128b1b0945ed029ef0d88",
+    "tree": "08f9ef32d36a990b1633a64ccbb1d634994a50e7",
+    "tag": "snapshots/ebira/candidate-1",
+    "description": "First native Windows/Android candidate",
+    "source": "versions/candidate-1/source"
+  },
+  {
+    "version": "candidate-2",
+    "commit": "d25a17d9efaf15d43b994aaed46310471020920d",
+    "tree": "b943c918a53130c9867eb300efc4d6ace34da380",
+    "tag": "snapshots/ebira/candidate-2",
+    "description": "Windows layout and network-adapter selection fixes",
+    "source": "versions/candidate-2/source"
+  },
+  {
+    "version": "candidate-3",
+    "commit": "dd811d6c93ef133f3e61e59c87113fcf588a76b5",
+    "tree": "07af1f874bfdf6b541e7f8491a0c305dfa401e29",
+    "tag": "snapshots/ebira/candidate-3",
+    "description": "Android local-only hotspot, laptop discovery and TLS connection reuse",
+    "source": "versions/candidate-3/source"
+  },
+  {
+    "version": "candidate-4",
+    "commit": "98f8ffe2eec89006734da5acf16fbae812027769",
+    "tree": "f01d96d544586ee3411871c3a5cfc0572b7d9e49",
+    "tag": "snapshots/ebira/candidate-4",
+    "description": "Windows checked-device approval fix; Android remains candidate 3",
+    "source": "versions/candidate-4/source"
+  }
+]

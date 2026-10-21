@@ -1,0 +1,18 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'app.ebira'
+    compileSdk 35
+    buildToolsVersion '35.0.0'
+    defaultConfig { applicationId 'app.ebira'; minSdk 29; targetSdk 35; versionCode 3; versionName '1.0.0-offline-candidate.3' }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+    buildTypes { release { minifyEnabled false } }
+    signingConfigs { debug { storeFile file("${rootProject.projectDir}/.debug/debug.keystore") } }
+}
+tasks.register('prepareDebugKey', Exec) {
+    def key = file("${rootProject.projectDir}/.debug/debug.keystore")
+    onlyIf { !key.exists() }
+    doFirst { key.parentFile.mkdirs() }
+    def keytool = new File(System.getProperty('java.home'), 'bin/keytool' + (System.getProperty('os.name').toLowerCase().contains('windows') ? '.exe' : ''))
+    commandLine keytool.absolutePath, '-genkeypair', '-keystore', key.absolutePath, '-storepass', 'android', '-keypass', 'android', '-alias', 'androiddebugkey', '-dname', 'CN=Android Debug,O=Android,C=US', '-keyalg', 'RSA', '-keysize', '2048', '-validity', '10000'
+}
+tasks.configureEach { if (name == 'validateSigningDebug') dependsOn 'prepareDebugKey' }
