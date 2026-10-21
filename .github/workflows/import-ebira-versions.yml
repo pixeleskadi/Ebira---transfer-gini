@@ -12,5 +12,5 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Verify hashes and publish approved source history
+      - name: Verify hashes and publish approved source history with archived CI
         run: python3 ebira-import.py
