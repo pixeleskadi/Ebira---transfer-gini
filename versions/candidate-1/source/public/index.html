@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ebira PoC</title><link rel="stylesheet" href="/style.css"><script defer src="/app.js"></script></head>
+<body><main><h1>Ebira</h1><p>Local encrypted file transfer · proof of concept</p><p id="status" role="status">Starting…</p>
+<section id="join" hidden><h2>Connect to Windows</h2><label>Device name <input id="name" value="My Android device" maxlength="80"></label><label>Pairing code shown on Windows <input id="code" autocomplete="off"></label><button id="connect">Request session</button></section>
+<section id="host" hidden><h2>Sessions</h2><p>Approve only a device you recognize. Approval covers all files sent during this session.</p><div id="sessions"></div><label>Send to <select id="target"></select></label></section>
+<section id="transfer" hidden><h2>Send files</h2><input id="picker" type="file" multiple><button id="send">Send selected files</button><button id="cancel" disabled>Stop / pause</button><button id="end">End session</button><p id="progress" role="status"></p><progress id="bar" max="100" value="0"></progress><h2>Session files</h2><p>On Android, tap Save for each incoming file. Browser downloads go to your usual Downloads folder in this PoC.</p><div id="files"></div></section>
+<p>Keep this page open during transfers. Use only on a trusted local network. Native Android folders, automatic discovery and direct connections come later.</p></main></body></html>

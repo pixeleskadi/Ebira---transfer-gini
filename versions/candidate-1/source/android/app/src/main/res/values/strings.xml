@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ebira</string>
+    <string name="device_name">%1$s %2$s</string>
+    <string name="saved_state_error">Cannot read saved state: %1$s</string>
+</resources>
